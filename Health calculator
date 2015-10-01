@@ -1,0 +1,99 @@
+age = int(input("How old are you?"))
+height = int(input("How tall are you? (in cm)"))
+weight = int(input("How much do you weigh? (in kg)"))
+
+gender = ""
+
+while gender != "male" or "female":
+    gender = input("Are you male or female?")
+    male = "male"
+    female = "female"
+
+    if(gender == "male"):
+        break
+
+    elif(gender == "female"):
+        break
+
+    elif(gender != "male" or "female"):
+        print("Sorry but",gender,"is not an answer")
+
+print("So you're",age,"years old, you are",height,"m tall and you weigh",weight,"kg. And you are",gender)
+
+print("Thank you for your answer")
+
+answer = ""
+BMI = round((weight)/((height/100)*(height/100)),1)
+
+while answer != "yes" or "no":
+    answer = input("Would you like to know your BMI? (yes/no)")
+    yes = "yes"
+    no = "no"
+
+    if(answer == yes):
+        print("Your BMI is:",BMI)
+        print("Thank you")
+        break
+    
+    elif(answer == no):
+        print("Not a problem. Thank you.")
+        break
+    
+    elif(answer != yes or no):
+        print("Sorry but",answer,"is not a choice, pick again.")
+
+answer1 = ""
+BMRmale = round(int(66.47+(13.7*weight)+(5*height)-(6.8*age)))
+BMRfemale = round(int(65.1+(9.6*weight)+(1.8*height)-(4.7*age)))
+
+while answer1 != "yes" or "no":
+    answer1 = input("Would you like to know your BMR? (yes/no)")
+    yes = "yes"
+    no = "no"
+
+    if(answer1 == yes and gender == "male"):
+        print("Your BMR is:",BMRmale)
+        print("Thank you")
+        break
+              
+    elif(answer1 == no):
+        print("Not a problem. Thank you.")
+        break
+              
+    elif(answer1 == yes and gender == "female"):
+        print("Your BMR is:",BMRfemale)
+        print("Thank you")
+        break
+              
+    elif(answer1 == no):
+        print("Not a problem. Thank you.")
+        break
+              
+    elif(answer1 != yes or no):
+        print("Sorry but",answer1,"is not a choice, pick again.")
+
+if(gender == "male" and BMI < 19):
+    print("Your BMI shows you are underweight.")
+    print("Your BMR is",BMRmale,", you should eat at least this many calories a day.")
+
+elif(gender == "male" and BMI > 19 and BMI < 24):
+    print("Your BMI shows you are healthy.")
+    print("Your BMR is",BMRmale,", you can continues eating this amount of calories each day.")
+
+elif(gender == "male" and BMI > 24):
+    print("Your BMI shows you are overweight.")
+    print("Your BMR is",BMRmale,"you should eat a maximum of this amount of calories.")
+
+
+if(gender == "female" and BMI < 19):
+    print("Your BMI shows you are underweight.")
+    print("Your BMR is",BMRfemale,", you should eat at least this many calories a day.")
+
+elif(gender == "female" and BMI > 19 and BMI < 24):
+    print("Your BMI shows you are healthy.")
+    print("Your BMR is",BMRfemale,", you can continues eating this amount of calories each day.")
+
+elif(gender == "female" and BMI > 24):
+    print("Your BMI shows you are overweight.")
+    print("Your BMR is",BMRfemale,"you should eat a maximum of this amount of calories.")
+    
